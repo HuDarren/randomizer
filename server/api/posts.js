@@ -4,20 +4,14 @@ module.exports = router
 
 // get subject and all items  from user
 
-router.get('/from/:username', async (req, res, next) => {
+router.get('/:userId', async (req, res, next) => {
   try {
-    const user = await User.findOne({
+    const post = await Subject.findAll({
       where: {
-        username: req.params.username
+        userId: req.params.userId
       }
     })
-    const allUserPosts = await Post.findAll({
-      where: {
-        userId: user.id
-      },
-      include: [{model: Subject, include: [{model: Post}]}]
-    })
-    res.json(allUserPosts)
+    res.json(post)
   } catch (error) {
     next(error)
   }
@@ -25,14 +19,13 @@ router.get('/from/:username', async (req, res, next) => {
 
 // post new subject
 
-router.post('/add/:username', async (req, res, next) => {
+router.post('/add/:userId', async (req, res, next) => {
   try {
     // const user = await User.findOne({
     //     where: {
     //         username: req.params.username
     //     }
     // })
-
     const newPost = await Subject.create(req.body)
     res.json(newPost)
   } catch (error) {

@@ -9,11 +9,11 @@ const Subject = db.define('subject', {
   Image: {
     type: Sequelize.STRING,
     allowNull: false
-  },
-  Question: {
-    type: Sequelize.ARRAY(Sequelize.STRING),
-    allowNull: false
   }
+  //   Question: {
+  //     type: Sequelize.ARRAY(Sequelize.STRING),
+  //     allowNull: false
+  //   }
 })
 
 module.exports = Subject
