@@ -1,4 +1,4 @@
-# Updates to Boilermaker
+# Updates to randomizer
 
 ## Tuesday, April 9th, 2019
 
